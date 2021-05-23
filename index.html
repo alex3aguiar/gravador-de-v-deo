@@ -98,10 +98,10 @@
             <br>
 
             <label for="video-width">Video Width:</label>
-            <input type="text" id="video-width" value="320">
+            <input type="text" id="video-width" value="1280">
 
             <label for="video-height">Video Height:</label>
-            <input type="text" id="video-height" value="240">
+            <input type="text" id="video-height" value="720">
         </section>
 
         <section class="experiment">
@@ -160,8 +160,8 @@
             function onMediaSuccess(stream) {
                 var video = document.createElement('video');
 
-                var videoWidth = document.getElementById('video-width').value || 320;
-                var videoHeight = document.getElementById('video-height').value || 240;
+                var videoWidth = document.getElementById('video-width').value || 1280;
+                var videoHeight = document.getElementById('video-height').value || 720;
 
                 video = mergeProps(video, {
                     controls: true,
@@ -246,63 +246,7 @@
             };
         </script>
 
-        <section class="experiment">
-        <h2 id="how-to-use">How to use?</h2>
-        <pre style="border-left: 2px solid red; margin-left:2em; padding-left: 1em;">
-// cdn.webrtc-experiment.com/MediaStreamRecorder.js
-
-var mediaConstraints = {
-    audio: true,
-    video: true
-};
-
-navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-
-function onMediaSuccess(stream) {
-    var mediaRecorder = new MediaStreamRecorder(stream);
-    mediaRecorder.mimeType = 'video/webm';
-    mediaRecorder.ondataavailable = function (blob) {
-        // POST/PUT "Blob" using FormData/XHR2
-        var blobURL = URL.createObjectURL(blob);
-        document.write('&lt;a href="' + blobURL + '"&gt;' + blobURL + '&lt;/a&gt;');
-    };
-    mediaRecorder.start(3000);
-}
-
-function onMediaError(e) {
-    console.error('media error', e);
-}
-</pre>
-        </section>
-
-        <section class="experiment">
-            <h2 class="header" id="updates" style="color: red; padding-bottom: .1em;"><a href="https://github.com/streamproc/MediaStreamRecorder/commits/master" target="_blank">Latest Issues</a>
-            </h2>
-            <div id="github-issues"></div>
-        </section>
-
-        <section class="experiment">
-            <h2 class="header" id="updates" style="color: red; padding-bottom: .1em;"><a href="https://github.com/streamproc/MediaStreamRecorder/commits/master" target="_blank">Latest Updates</a>
-            </h2>
-            <div id="github-commits"></div>
-        </section>
-
-        <section class="experiment"><small id="send-message"></small></section>
-
-        <script>
-            window.useThisGithubPath = 'streamproc/MediaStreamRecorder';
-        </script>
-        <script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
-    </article>
-
-    <a href="https://github.com/streamproc/MediaStreamRecorder" class="fork-left"></a>
-
-    <footer>
-        <p>
-            <a href="https://www.webrtc-experiment.com/">WebRTC Experiments</a> © <a href="https://plus.google.com/+MuazKhan" rel="author" target="_blank">Muaz Khan</a>
-            <a href="mailto:muazkh@gmail.com" target="_blank">muazkh@gmail.com</a>
-        </p>
-    </footer>
+       
 </body>
 
 </html>
